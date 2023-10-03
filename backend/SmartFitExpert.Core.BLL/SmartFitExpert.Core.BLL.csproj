@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SmartFitExpert.Core.DAL\SmartFitExpert.Core.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

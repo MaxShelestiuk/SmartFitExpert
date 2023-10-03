@@ -1,3 +1,5 @@
+using SmartFitExpert.Core.DAL.Extensions;
+
 namespace SmartFitExpert
 {
     public class Program
@@ -9,6 +11,7 @@ namespace SmartFitExpert
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddSmartFitExpertCoreContext(builder.Configuration);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -21,7 +24,7 @@ namespace SmartFitExpert
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseSmartFitExpertCoreContext();
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
