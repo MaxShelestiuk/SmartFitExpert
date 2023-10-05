@@ -1,10 +1,10 @@
-﻿using SmartFitExpert.Core.DAL.Enums;
+﻿using SmartFitExpert.Core.DAL.Entities.Abstract;
+using SmartFitExpert.Core.DAL.Enums;
 
 namespace SmartFitExpert.Core.DAL.Entities
 {
-    public class DailyPlan
+    public sealed class DailyPlan : BaseEntity<int>
     {
-        public int Id { get; set; }
         public AgeGroup AgeGroup { get; set; }
         public Goal Goal { get; set; }
         public int TotalDays { get; set; }

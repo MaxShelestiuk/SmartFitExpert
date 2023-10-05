@@ -1,10 +1,10 @@
-﻿using SmartFitExpert.Core.DAL.Enums;
+﻿using SmartFitExpert.Core.DAL.Entities.Abstract;
+using SmartFitExpert.Core.DAL.Enums;
 
 namespace SmartFitExpert.Core.DAL.Entities
 {
-    public class Exercise
+    public sealed class Exercise : BaseEntity<int>
     {
-        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public MuscleGroup TargetMuscleGroup { get; set; } = null!;
         public int Priority { get; set; }

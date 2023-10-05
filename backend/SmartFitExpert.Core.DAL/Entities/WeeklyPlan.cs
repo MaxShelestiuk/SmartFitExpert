@@ -1,10 +1,10 @@
-﻿using SmartFitExpert.Core.DAL.Enums;
+﻿using SmartFitExpert.Core.DAL.Entities.Abstract;
+using SmartFitExpert.Core.DAL.Enums;
 
 namespace SmartFitExpert.Core.DAL.Entities
 {
-    public class WeeklyPlan
+    public sealed class WeeklyPlan: BaseEntity<int>
     {
-        public int Id { get; set; }
         public int TotalDays { get; set; }
         public string TrainingRestBalance { get; set; } = string.Empty;
         public WeekPlanType WeekPlanType { get; set; }

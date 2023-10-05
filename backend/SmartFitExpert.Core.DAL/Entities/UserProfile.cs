@@ -1,10 +1,10 @@
-﻿using SmartFitExpert.Core.DAL.Enums;
+﻿using SmartFitExpert.Core.DAL.Entities.Abstract;
+using SmartFitExpert.Core.DAL.Enums;
 
 namespace SmartFitExpert.Core.DAL.Entities
 {
-    public class UserProfile
+    public sealed class UserProfile : BaseEntity<int>
     {
-        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public Gender Gender { get; set; }
         public Goal Goal { get; set; }
