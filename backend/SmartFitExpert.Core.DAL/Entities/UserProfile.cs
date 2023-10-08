@@ -5,6 +5,8 @@ namespace SmartFitExpert.Core.DAL.Entities
 {
     public sealed class UserProfile : BaseEntity<int>
     {
+        public int? WeeklyPlanId { get; set; }
+        public WeeklyPlan? WeeklyPlan { get; set; } = null!;
         public string Name { get; set; } = string.Empty;
         public Gender Gender { get; set; }
         public Goal Goal { get; set; }
