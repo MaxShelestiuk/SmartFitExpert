@@ -1,5 +1,4 @@
 ﻿using SmartFitExpert.Core.Common.DTO.MuscleGroup;
-using SmartFitExpert.Core.DAL.Entities;
 
 namespace SmartFitExpert.Core.BLL.Interfaces
 {

@@ -10,11 +10,13 @@ namespace SmartFitExpert.Core.DAL
         public DbSet<UserProfile> UserProfiles => Set<UserProfile>();
         public DbSet<DailyPlan> DailyPlans => Set<DailyPlan>();
         public DbSet<Exercise> Exercise => Set<Exercise>();
+        public DbSet<Equipment> Equipment => Set<Equipment>();
         public DbSet<WeeklyPlan> WeeklyPlans => Set<WeeklyPlan>();
         public DbSet<MuscleGroup> MuscleGroups => Set<MuscleGroup>();
         public DbSet<ExerciseDailyPlans> ExerciseDailyPlans => Set<ExerciseDailyPlans>();
         public DbSet<ExerciseSupportMuscles> SupportMuscleExercises => Set<ExerciseSupportMuscles>();
         public DbSet<WeekDailyPlans> WeekDailyPlans => Set<WeekDailyPlans>();
+        public DbSet<ExerciseEquipments> ExerciseEquipments => Set<ExerciseEquipments>();
 
         public SmartFitExpertCoreContext(DbContextOptions<SmartFitExpertCoreContext> options) : base(options)
         {

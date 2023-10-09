@@ -27,7 +27,7 @@ namespace SmartFitExpert.Core.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<MuscleGroupDto>> CreateMuscleGroup([FromBody] MuscleGroupDto newMuscleGroup)
+        public async Task<ActionResult<MuscleGroupDto>> CreateMuscleGroupAsync([FromBody] MuscleGroupDto newMuscleGroup)
         {
             return Ok(await _muscleGroupService.CreateMuscleGroupAsync(newMuscleGroup));
         }

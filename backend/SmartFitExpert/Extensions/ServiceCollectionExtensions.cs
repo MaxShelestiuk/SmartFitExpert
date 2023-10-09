@@ -8,6 +8,7 @@ namespace SmartFitExpert.Core.WebAPI.Extensions
         public static void RegisterCustomServices(this IServiceCollection services)
         {
             services.AddScoped<IMuscleGroupService, MuscleGroupService>();
+            services.AddScoped<IEquipmentService, EquipmentService>();
         }
     }
 }
