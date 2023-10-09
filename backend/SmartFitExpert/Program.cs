@@ -1,4 +1,6 @@
 using SmartFitExpert.Core.DAL.Extensions;
+using SmartFitExpert.Core.BLL.Extensions;
+using SmartFitExpert.Core.WebAPI.Extensions;
 
 namespace SmartFitExpert
 {
@@ -14,6 +16,8 @@ namespace SmartFitExpert
             builder.Services.AddSmartFitExpertCoreContext(builder.Configuration);
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+            builder.Services.RegisterCustomServices();
+            builder.Services.AddAutoMapper();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
