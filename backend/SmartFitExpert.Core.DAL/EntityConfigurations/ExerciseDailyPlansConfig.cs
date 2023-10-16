@@ -11,12 +11,12 @@ namespace SmartFitExpert.Core.DAL.EntityConfigurations
             builder.HasOne(x => x.DailyPlan)
                 .WithMany(x => x.ExerciseDailyPlans)
                 .HasForeignKey(x => x.DailyPlanId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(x => x.Exercise)
                 .WithMany(x => x.ExerciseDailyPlans)
                 .HasForeignKey(x => x.ExerciseId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

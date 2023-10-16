@@ -18,7 +18,7 @@ namespace SmartFitExpert.Core.DAL.EntityConfigurations
             builder.HasOne(x => x.WeeklyPlan)
                 .WithMany(x => x.UserProfiles)
                 .HasForeignKey(x => x.WeeklyPlanId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

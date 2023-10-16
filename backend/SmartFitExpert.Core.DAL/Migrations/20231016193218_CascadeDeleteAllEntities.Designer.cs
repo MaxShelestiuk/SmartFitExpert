@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartFitExpert.Core.DAL;
 
@@ -11,9 +12,11 @@ using SmartFitExpert.Core.DAL;
 namespace SmartFitExpert.Core.DAL.Migrations
 {
     [DbContext(typeof(SmartFitExpertCoreContext))]
-    partial class SmartFitExpertCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20231016193218_CascadeDeleteAllEntities")]
+    partial class CascadeDeleteAllEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartFitExpert.Core.DAL;
 
@@ -11,9 +12,11 @@ using SmartFitExpert.Core.DAL;
 namespace SmartFitExpert.Core.DAL.Migrations
 {
     [DbContext(typeof(SmartFitExpertCoreContext))]
-    partial class SmartFitExpertCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20231016192700_CascadeDeleteExerciseJoinEntities")]
+    partial class CascadeDeleteExerciseJoinEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -285,7 +288,7 @@ namespace SmartFitExpert.Core.DAL.Migrations
                     b.HasOne("SmartFitExpert.Core.DAL.Entities.MuscleGroup", "TargetMuscleGroup")
                         .WithMany("Exercises")
                         .HasForeignKey("TargetMuscleGroupId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("TargetMuscleGroup");
                 });
@@ -295,13 +298,13 @@ namespace SmartFitExpert.Core.DAL.Migrations
                     b.HasOne("SmartFitExpert.Core.DAL.Entities.DailyPlan", "DailyPlan")
                         .WithMany("ExerciseDailyPlans")
                         .HasForeignKey("DailyPlanId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("SmartFitExpert.Core.DAL.Entities.Exercise", "Exercise")
                         .WithMany("ExerciseDailyPlans")
                         .HasForeignKey("ExerciseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("DailyPlan");
@@ -352,13 +355,13 @@ namespace SmartFitExpert.Core.DAL.Migrations
                     b.HasOne("SmartFitExpert.Core.DAL.Entities.DailyPlan", "DailyPlan")
                         .WithMany("WeekDailyPlans")
                         .HasForeignKey("DailyPlanId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("SmartFitExpert.Core.DAL.Entities.WeeklyPlan", "WeeklyPlan")
                         .WithMany("WeekDailyPlans")
                         .HasForeignKey("WeekPlanId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("DailyPlan");
@@ -371,7 +374,7 @@ namespace SmartFitExpert.Core.DAL.Migrations
                     b.HasOne("SmartFitExpert.Core.DAL.Entities.WeeklyPlan", "WeeklyPlan")
                         .WithMany("UserProfiles")
                         .HasForeignKey("WeeklyPlanId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("WeeklyPlan");
                 });

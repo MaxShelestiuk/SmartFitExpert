@@ -11,12 +11,12 @@ namespace SmartFitExpert.Core.DAL.EntityConfigurations
             builder.HasOne(x => x.MuscleGroup)
                 .WithMany(x => x.ExerciseSupportMuscles)
                 .HasForeignKey(x => x.MuscleGroupId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(x => x.Exercise)
                 .WithMany(x => x.ExerciseSupportMuscles)
                 .HasForeignKey(x => x.ExerciseId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
